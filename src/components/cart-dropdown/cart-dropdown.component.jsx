@@ -15,9 +15,7 @@ const CartDropdown = () => {
     <div className="cart-dropdown-container">
       <div className="cart-items">
         {cartItems.map((item) => (
-          <>
-            <CartItem product={item} key={item.id} />
-          </>
+          <CartItem product={item} key={item.id} />
         ))}
       </div>
       <Link to={"/checkout"}>
