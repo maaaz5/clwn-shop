@@ -3,11 +3,11 @@ import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { currentUserSelector } from "../../store/user/user.selector";
+import { isCartOpenSelector } from "../../store/cart/cart.selector";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 
-import { CartContext } from "../../contexts/cart.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 import { ReactComponent as CrownLg } from "../../asssets/crown.svg";
@@ -20,7 +20,7 @@ import {
 
 const Nav = () => {
   const currentUser = useSelector(currentUserSelector);
-  const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(isCartOpenSelector);
 
   return (
     <Fragment>
