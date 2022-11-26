@@ -21,7 +21,7 @@ const removeItemQuantity = (cartItems, productToAdd) => {
       : item
   );
 
-  return newItems.filter((item) => item.quantity != 0);
+  return newItems.filter((item) => item.quantity !== 0);
 };
 
 export const setIsCartOpen = (bool) => ({
@@ -31,7 +31,7 @@ export const setIsCartOpen = (bool) => ({
 
 export const deleteFromCart = (cartItems, productToDelete) => {
   const newCartItems = cartItems.filter(
-    (item) => item.id != productToDelete.id
+    (item) => item.id !== productToDelete.id
   );
   return { type: CART_ACTION_TYPES.SET_CART_ITEMS, payload: newCartItems };
 };
