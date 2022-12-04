@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
+
 import {
   signInWithGooglePopup,
   signInUserAuthWithEmailAndPassword,
@@ -22,7 +24,7 @@ const SignIn = () => {
     await signInWithGooglePopup();
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
     setFormFields({
@@ -31,13 +33,13 @@ const SignIn = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       await signInUserAuthWithEmailAndPassword(email, password);
     } catch (error) {
-      switch (error.code) {
+      switch ((error as AuthError).code) {
         case "auth/user-not-found":
           alert("No user with this email found");
           break;
@@ -59,7 +61,7 @@ const SignIn = () => {
       <span>Sign In with you email and password</span>
       <form
         onSubmit={(e) => {
-          handleSubmit(e, formFields);
+          handleSubmit(e);
         }}
       >
         <FormInput
