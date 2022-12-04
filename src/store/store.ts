@@ -1,13 +1,24 @@
 import { createStore, compose, applyMiddleware } from "redux";
 // import { logger } from "redux-logger";
 import thunk from "redux-thunk";
-import { persistReducer, persistStore } from "redux-persist";
+import { persistReducer, persistStore, PersistConfig } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { rootReducer } from "./root-reducer";
 
+export type RootState = ReturnType<typeof rootReducer>;
+
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
 const middlewares = [thunk];
 
-const persistConfig = {
+type ExtendedPersistConfig = PersistConfig<RootState> & {
+  whitelist: (keyof RootState)[];
+};
+const persistConfig: ExtendedPersistConfig = {
   key: "root",
   storage,
   whitelist: ["cart"],
