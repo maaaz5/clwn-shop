@@ -1,6 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from "react";
-import { AuthError, AuthErrorCodes } from "firebase/auth";
-
+import { AuthError } from "firebase/auth";
 import {
   signInWithGooglePopup,
   signInUserAuthWithEmailAndPassword,
@@ -9,7 +8,7 @@ import {
 import Button, { BUTTON_TYPES_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 
-import "./sign-in.styles.scss";
+import { ButtonsContainer, SignInContainer } from "./sign-in.styles";
 
 const defaultFormFields = {
   email: "",
@@ -56,7 +55,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="sign-in-container">
+    <SignInContainer>
       <h2>Already have an account ?</h2>
       <span>Sign In with you email and password</span>
       <form
@@ -82,7 +81,7 @@ const SignIn = () => {
           value={password}
         />
 
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button type="submit">Sign In</Button>
           <Button
             type="button"
@@ -91,9 +90,9 @@ const SignIn = () => {
           >
             Google Sign In
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 };
 

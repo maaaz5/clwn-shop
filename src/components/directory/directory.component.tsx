@@ -1,6 +1,13 @@
 import DirectoryItem from "../directory-item/directory-item.component";
-import "./directory.styles.scss";
-const categories = [
+import { DirectoryContainer } from "./directory.styles";
+
+export type Category = {
+  id: number;
+  title: string;
+  imageUrl: string;
+  route: string;
+};
+const categories: Category[] = [
   {
     id: 1,
     title: "hats",
@@ -34,11 +41,11 @@ const categories = [
 ];
 const Directory = () => {
   return (
-    <div className="directory-container">
+    <DirectoryContainer>
       {categories.map((category) => (
         <DirectoryItem category={category} key={category.id} />
       ))}
-    </div>
+    </DirectoryContainer>
   );
 };
 
