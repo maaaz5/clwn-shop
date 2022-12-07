@@ -8,6 +8,8 @@ import {
 import { setCurrentUser } from "./store/user/user.action";
 import Spinner from "./components/spinner/spinner.component";
 
+import { GlobalStyles } from "./globalStyles/globalStyles";
+
 //lazy imports
 const Nav = lazy(() => import("./routes/navigation/navigation.component"));
 const Home = lazy(() => import("./routes/home/home.component"));
@@ -32,6 +34,7 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
+      <GlobalStyles />
       <Routes>
         <Route path="/" element={<Nav />}>
           <Route index={true} element={<Home />} />

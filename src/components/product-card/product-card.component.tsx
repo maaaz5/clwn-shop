@@ -19,7 +19,7 @@ const ProductCard = ({ product }: ProductCartProps) => {
 
       <Footer>
         <span className="name">{name}</span>
-        <span className="price">{price}</span>
+        <span className="price">${price}</span>
       </Footer>
 
       <Button

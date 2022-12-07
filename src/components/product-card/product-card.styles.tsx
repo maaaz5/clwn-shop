@@ -4,7 +4,7 @@ export const ProductCartContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 360px;
   align-items: center;
   position: relative;
 
@@ -21,6 +21,13 @@ export const ProductCartContainer = styled.div`
     position: absolute;
     top: 255px;
     display: none;
+
+    @media screen and (max-width: 800px) {
+      display: block;
+      opacity: 0.9;
+      min-width: unset;
+      padding: 0 10px;
+    }
   }
 
   &:hover {
@@ -31,6 +38,19 @@ export const ProductCartContainer = styled.div`
     button {
       opacity: 0.85;
       display: flex;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+    &:hover {
+      img {
+        opacity: unset;
+      }
+
+      button {
+        opacity: unset;
+      }
     }
   }
 `;
@@ -49,5 +69,16 @@ export const Footer = styled.div`
 
   .price {
     width: 10%;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 15px;
+    gap: 10px;
+    .name {
+      width: unset;
+    }
+    .price {
+      width: unset;
+    }
   }
 `;

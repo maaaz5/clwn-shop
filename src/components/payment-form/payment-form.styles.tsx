@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const PaymentFormContainer = styled.div`
   height: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,5 +11,20 @@ export const PaymentFormContainer = styled.div`
 
 export const FormContainer = styled.form`
   height: 100px;
-  min-width: 500px;
+  width: 100%;
+
+  .StripeElement {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    /* justify-items: center; */
+  }
+
+  button {
+    margin-top: 30px;
+  }
+
+  @media screen and (max-width: 600px) {
+    min-width: unset;
+  }
 `;
