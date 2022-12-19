@@ -1,10 +1,13 @@
-#CLWN SHOP PROJECT
+CLWN SHOP PROJECT
 
-##To create this project I combined many packages and technologies : 
+To create this project I combined many packages and technologies : 
 
-###TypeScript
-###Styled-Component
-###Redux and Redux-thunk
-###Lazy loading for performance
+TypeScript
 
-##Those are the main technologies I used in this porject, I might forget some.
+Styled-Component
+
+Redux and Redux-thunk
+
+Lazy loading for performance
+
+Those are the main technologies I used in this porject, I might forget some.
